@@ -27,7 +27,13 @@ public class Player extends GameObject{
     private double jumpStart;
     private double gravity;
 
-
+    private  boolean topLeft;
+    private  boolean topRight;
+    private  boolean bottomLeft;
+    private boolean bottomRight;
+    private  boolean slipRight;
+    private  boolean slipLeft;
+    private  boolean splitRihtVar;
     private MapReader tileMaP;
 
 
@@ -58,6 +64,25 @@ public class Player extends GameObject{
     //FUNCTIONS:
     public void update(){
 
+        //player dx,dy,jumping,falling
+        calculatePosition();
+
+        //collision
+        checkTileCollision(x,y,dx,dy,jumping,falling);
+
+        //change vars
+        falling = getFalling();
+        jumping = getJumping();
+        x = getNewX();
+        y = getNewY();
+        dx = getNewDx();
+        dy = getNewDy();
+
+    }
+
+
+
+    public void calculatePosition(){
 
         if(left){
 
@@ -87,7 +112,7 @@ public class Player extends GameObject{
 
         if(jumping){
 
-
+          //  System.out.println("ПРЫГАЮ");
 
             dy = jumpStart;
 
@@ -98,23 +123,12 @@ public class Player extends GameObject{
 
         if(falling){
 
-            dy += gravity;
+            dy += gravity; //System.out.println(maxFallingSpeed + " maxfalspped  " + dy);
             if(dy > maxFallingSpeed) dy = maxFallingSpeed;
 
-        }else dy = 0;
-
-        //collision
-        checkTileCollision(x,y,dx,dy,jumping,falling);
-
-        falling = getFalling();
-        jumping = getJumping();
-        x = getNewX();
-        y = getNewY();
+        } else dy = 0;
 
     }
-
-
-
 
 
     public void draw(Graphics2D g){

@@ -61,18 +61,18 @@ public GameObject(int w,int h){
 
     if(dy < 0){
         if(topLeft || topRight){
-            dy = 0;
+            this.dy = 0;
             tempy = currRow * tileMap.getTileSize() + height/2;
-        }else { tempy += dy; }
+        }else { tempy += this.dy; }
     }
 
     if(dy > 0){
 
 
         if(bottomRight || bottomLeft){
-            dy = 0; falling = false; tempy = (currRow + 1) * tileMap.getTileSize() - height/2;
+            this.dy = 0; falling = false; tempy = (currRow + 1) * tileMap.getTileSize() - height/2;
 
-        }else tempy += dy;
+        }else tempy += this.dy;
 
     }
 
@@ -80,18 +80,18 @@ public GameObject(int w,int h){
 
     if(dx < 0){
         if(topLeft || bottomLeft){
-            dx = 0; tempx = currCol * tileMap.getTileSize() + width/2;
-        }else tempx +=dx;
+            this.dx = 0; tempx = currCol * tileMap.getTileSize() + width/2;
+        }else tempx += this.dx;
 
     }
 
     if(dx > 0){
 
         if(topRight || bottomRight){
-            dx = 0;
+            this.dx = 0;
             tempx = (currCol + 1) * tileMap.getTileSize() - width/2;
 
-        }else tempx += dx;
+        }else tempx += this.dx;
     }
 
     if(!falling){
@@ -124,8 +124,8 @@ public boolean getFalling(){ return falling; }
 public boolean getJumping(){ return jumping; }
 public double getNewX(){ return x; }
 public double getNewY(){ return y; }
-
-
+public double getNewDx(){ return this.dx; }
+public double getNewDy(){ return this.dy; }
 
 //ABSTRACT FUNCTIONS
 abstract void draw(Graphics2D g);

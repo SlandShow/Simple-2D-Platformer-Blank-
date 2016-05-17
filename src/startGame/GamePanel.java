@@ -10,7 +10,7 @@ public class GamePanel extends Component {
 
     //VARS:
     public static int WINDOW_W = 800;
-    public static int WINDOW_H = 525;
+    public static int WINDOW_H = 800;
 
 
     //OBJECT-VARS:
