@@ -29,9 +29,6 @@ public class GameListeners implements KeyListener{
       gs = GameLoader.loadArray.get(GameLoader.LOADVAR);
       gs.keyPressed(keyEvent);
 
-    //gameMenu.keyPressed(keyEvent);
-   // lv1.keyPressed(keyEvent);
-
     }
 
     @Override

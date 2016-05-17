@@ -27,13 +27,7 @@ public class Player extends GameObject{
     private double jumpStart;
     private double gravity;
 
-    private  boolean topLeft;
-    private  boolean topRight;
-    private  boolean bottomLeft;
-    private boolean bottomRight;
-    private  boolean slipRight;
-    private  boolean slipLeft;
-    private  boolean splitRihtVar;
+
     private MapReader tileMaP;
 
 
@@ -112,7 +106,7 @@ public class Player extends GameObject{
 
         if(jumping){
 
-          //  System.out.println("ПРЫГАЮ");
+
 
             dy = jumpStart;
 
@@ -123,7 +117,7 @@ public class Player extends GameObject{
 
         if(falling){
 
-            dy += gravity; //System.out.println(maxFallingSpeed + " maxfalspped  " + dy);
+            dy += gravity;
             if(dy > maxFallingSpeed) dy = maxFallingSpeed;
 
         } else dy = 0;
